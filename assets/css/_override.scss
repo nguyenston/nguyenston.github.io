@@ -1,0 +1,14 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+@font-face {
+    font-style: normal;
+    font-family: JetBrainsMono;
+    src: url("../fonts/JetBrainsMono/fonts/ttf/JetBrainsMono-Regular.ttf") format("truetype");
+}
+
+$global-font-family: JetBrainsMono, monospace, system-ui, -apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif;
+$header-title-font-family: $global-font-family;
+$code-font-family: JetBrainsMono, monospace;
