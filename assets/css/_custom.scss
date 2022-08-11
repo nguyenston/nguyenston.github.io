@@ -3,7 +3,12 @@
 // 自定义样式
 // ==============================
 
-header .logo {
-    min-width: 1.5em;
-    width: 1.5em;
+header {
+  .logo {
+      min-width: 1.5em;
+      width: 1.5em;
+  }
+  .logo, .header-title-pre {
+      padding-right: 1.25rem;
+  }
 }
