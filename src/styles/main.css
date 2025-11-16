@@ -155,7 +155,7 @@
 
 /* Add transitions to the grid and sidebar */
 #main-grid {
-    transition: grid-template-columns 0.3s ease-in-out, gap 0.3s ease-in-out;
+    /* transition: grid-template-columns 0.3s ease-in-out, gap 0.3s ease-in-out; */
 }
 
 #left-sidebar #profile,
