@@ -19,8 +19,6 @@ jobs:
       # This block is new and sets up pnpm
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
-        with:
-          version: 8 # Or a newer version if you prefer
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
