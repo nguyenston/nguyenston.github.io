@@ -13,7 +13,7 @@ Beyond my research, I enjoy building practical, open-source tools.
 
 ## Skills
 
-My primary programming languages are **Python, Julia, Rust, and SQL**.
+The programming languages I'm currently most familiar with are **Python, Julia, Rust, and JavaScript**.
 
 Feel free to connect with me on [GitHub](https://github.com/nguyenston) and [LinkedIn](https://linkedin.com/in/nguyenston). You can also see my resume [here](/Nguyen_Nguyen_resume.pdf).
 
