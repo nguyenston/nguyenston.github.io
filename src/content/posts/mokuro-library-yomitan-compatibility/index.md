@@ -2,7 +2,7 @@
 title: "Simulating Absolute Positioning with Relative CSS for Continuous Text Scanning"
 published: 2025-11-17
 image: "./example.jpg"
-description: Solving Yomitan scanning challenges for a mokuro frontend
+description: Solving Yomitan scanning challenges for a mokuro frontend.
 tags: [mokuro,css]
 category: Technical
 draft: false
