@@ -45,6 +45,6 @@ Designed a domain-specific language (DSL) in Julia using meta-programming to cre
 ---
 
 ### Connect
-* **GitHub**: [nguyenston](https://github.com/nguyenston)
-* **LinkedIn**: [Nguyen Phuc Nguyen](https://linkedin.com/in/nguyenston)
+* **GitHub**: [https://github.com/nguyenston](https://github.com/nguyenston)
+* **LinkedIn**: [https://linkedin.com/in/nguyenston](https://linkedin.com/in/nguyenston)
 * **Resume**: [View PDF](/Nguyen_Nguyen_resume.pdf)
