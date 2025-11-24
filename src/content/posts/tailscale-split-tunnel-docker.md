@@ -3,7 +3,7 @@ title: "Configuring Split Tunneling and Killswitches for Docker with Tailscale E
 published: 2025-07-29
 description: How to route specific Docker containers through a VPN killswitch while letting others bypass the Tailscale Exit Node.
 tags: [tailscale,linux,networking]
-category: Technical
+category: Projects
 draft: false
 ---
 

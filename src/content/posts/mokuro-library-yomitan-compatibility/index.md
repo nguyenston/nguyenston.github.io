@@ -4,7 +4,7 @@ published: 2025-11-17
 image: "./example.jpg"
 description: Solving Yomitan scanning challenges for a mokuro frontend.
 tags: [mokuro,css]
-category: Technical
+category: Projects
 draft: false
 ---
 
