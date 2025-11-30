@@ -56,7 +56,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-  avatar: "assets/images/avatar-2.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+  avatar: "assets/images/avatar-2.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
   name: "Nguyen Phuc Nguyen",
   bio: "Ph.D. candidate in Systems Engineering developing interpretable machine learning models.",
   links: [
