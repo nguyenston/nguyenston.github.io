@@ -21,16 +21,19 @@ Beyond my academic research, I enjoy tinkering with new languages and frameworks
 
 ### [Mokuro Library](https://github.com/nguyenston/mokuro-library)
 *Full-stack, Dockerized Web Application*
+
 A centralized, multi-user comic library with embedded OCR data. It features a Fastify/Prisma backend and a SvelteKit frontend.
 * **Key Features**: Exposes a REST API for user-scoped resource management and implements a custom in-place web reader for editing OCR text and bounding boxes directly on the server.
 * **Technical challenges**: Implemented a "faux-absolute" positioning system using relative CSS and negative margins to resolve DOM continuity conflicts between frontend layout requirements and Yomitan's text scanning.
 
 ### [Matter Phase Simulation](https://github.com/nguyenston/Van_Der_Waals_Interactions)
 *Rust / Systems Simulation*
+
 Developed a particle simulation in Rust using the Bevy UI to explore physical systems. Implemented an efficient grid method to visualize complex phenomena such as the breakdown of the ideal gas law, crystalline formation, and annealing processes.
 
 ### [Quantum Virtual Machine (QVIM)](https://github.com/nguyenston/QViM)
 *Julia / Metaprogramming*
+
 Designed a domain-specific language (DSL) in Julia using meta-programming to create intuitive syntax for defining quantum logic circuits. The project includes an efficient simulator with gate operations optimized via basis change.
 
 ## Technical Skills
