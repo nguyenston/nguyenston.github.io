@@ -71,7 +71,7 @@ We can render each line separated by `<br>` tags or inside `<p>`s.
 </div>
 ```
 
-* **Pros:** Visually better than Option 1.
+* **Pros:** Visually better than Option 1. Simple, lightweight, easy to maintain.
 * **Cons:** Still doesn't match the specific coordinates of the Mokuro format (e.g., if one line is offset slightly).
 * **Doesn't play nice with Yomitan:** A `<p>` (or `<div>`) is a block-level element. Yomitan's text scanner treats block boundaries as sentence terminators. If you scan across the lines, Yomitan sees `こんにちは` **STOP** `元気ですか`. It cannot recognize words that span across lines. This issue is documented [here](https://github.com/kha-white/mokuro/issues/139).
 
@@ -89,8 +89,8 @@ This is what I was going for initially. We use `position: absolute` to place eac
 </div>
 ```
 
-* **Pros:** Gives most control to the user. Combining with an editing feature, the user can have a great degree of control on which text goes where. Also looks great fresh of `mokuro`.
-* **Cons:** verbose (from a development standpoint)
+* **Pros:** Gives most control to the user. Combining with an editing feature, the user can have a great degree of control on which text goes where. Also looks great.
+* **Cons:** verbose and more complicated to implement and maintain.
 * **Still doesn't play nice with Yomitan :(**
 
 ## 3. Picking at Yomitan's scanning behavior
