@@ -2,9 +2,9 @@
 title: "Simulating Absolute Positioning with Relative CSS for Continuous Text Scanning"
 published: 2025-11-17
 image: "./example.jpg"
-description: Solving Yomitan scanning challenges for a mokuro frontend
+description: Solving Yomitan scanning challenges for a mokuro frontend.
 tags: [mokuro,css]
-category: Technical
+category: Projects
 draft: false
 ---
 
@@ -89,7 +89,7 @@ This is what I was going for initially. We use `position: absolute` to place eac
 </div>
 ```
 
-* **Pros:** Gives most control to the user. Combining with an editing feature, the user can have a great degree of control on which text goes where. Also looks great.
+* **Pros:** Gives most control to the user. Combining with an editing feature, the user can have a great degree of control on which text goes where.
 * **Cons:** verbose and more complicated to implement and maintain.
 * **Still doesn't play nice with Yomitan :(**
 
