@@ -1,6 +1,8 @@
-# Hello, I'm Nguyen Phuc Nguyen
+# Hello, I’m Nguyen Phuc Nguyen
 
-I am a Ph.D. candidate in Systems Engineering at Boston University with a background in Computer Science and Physics. My research focuses on developing interpretable machine learning models, designing efficient algorithms, and building automated ML pipelines for large-scale data applications.
+I am a Ph.D. candidate in Systems Engineering at Boston University with a background in Computer Science and Physics. I work on problems that sit at the intersection of **software systems, optimization, and applied machine learning**, where careful reasoning about state, scalability, and failure modes matters as much as raw performance.
+
+Alongside my academic research, I build independent software projects to explore system design, tooling, and end-to-end implementation in realistic settings.
 
 ## Education
 
@@ -9,45 +11,74 @@ I am a Ph.D. candidate in Systems Engineering at Boston University with a backgr
 
 ## Research & Professional Experience
 
-Currently, I work as a Graduate Research Assistant at the **Paschalidis NOC Lab**, where I apply machine learning to clinical and theoretical problems.
+I am currently a Graduate Research Assistant at the **Paschalidis NOC Lab**, where I apply machine learning and systems methods to clinical and theoretical problems.
 
-* **Clinical ML Pipelines**: I built and deployed an ML pipeline trained on a 100,000-patient dataset that currently runs weekly inference for a clinical trial on hypertension prescription at BMC. Additionally, I engineered a data pipeline processing a 10-year dataset (30,000 appointments) to predict missed CT screenings.
-* **Algorithm Design**: I formulated a spectral algorithm for discovering latent policies from demonstrations, which guarantees global convergence in a single data pass, overcoming the pitfalls of Expectation-Maximization (EM) methods.
-* **ACDC**: I helped designing and implementing a flexible framework for discovering latent processes, with successful applications in bioinformatics (mutation analysis) and remote sensing (hyperspectral unmixing).
+* **Production ML Pipelines**  
+  Designed, built, and deployed an end-to-end ML pipeline trained on a 100,000-patient dataset, now running weekly inference in support of a clinical trial on hypertension prescription at Boston Medical Center.  
+  I also engineered a data pipeline processing a 10-year dataset (30,000 appointments across 6,000 patients) to predict missed CT screenings and enable targeted patient support.
 
-## Technical Projects
+* **Algorithm Design**  
+  Developed a spectral algorithm for discovering latent policies from demonstrations, guaranteeing global convergence in a single data pass and avoiding common failure modes of Expectation–Maximization methods.
 
-Beyond my academic research, I enjoy tinkering with new languages and frameworks to build open-source tools.
+* **Latent Process Modeling**  
+  Contributed to the design and implementation of a flexible framework for discovering latent processes, with applications in bioinformatics (mutation analysis) and remote sensing (hyperspectral unmixing).
+
+## Selected Projects
 
 ### [Mokuro Library](https://github.com/nguyenston/mokuro-library)
-*Full-stack, Dockerized Web Application*
 
-A centralized, multi-user comic library with embedded OCR data. It features a Fastify/Prisma backend and a SvelteKit frontend.
-* **Key Features**: Exposes a REST API for user-scoped resource management and implements a custom in-place web reader for editing OCR text and bounding boxes directly on the server.
-* **Technical challenges**: Implemented a "faux-absolute" positioning system using relative CSS and negative margins to resolve DOM continuity conflicts between frontend layout requirements and Yomitan's text scanning.
+A self-hosted, multi-user library for reading and editing OCR-backed comics and documents, designed to run on home servers or NAS environments.
+
+This project grew out of a desire to have a reader that treats OCR data as *first-class, editable content* rather than a static artifact, while remaining practical to self-host and maintain.
+
+**Highlights:**
+
+- **Server-backed library and storage**  
+  All content and metadata live on the server filesystem, avoiding browser storage limits and enabling access across devices and users.
+
+- **Multi-user design with private state**  
+  Users share a common library while maintaining independent reading progress, bookmarks, and OCR edits.
+
+- **Interactive OCR reader and editor**  
+  Documents are displayed with selectable OCR text overlays, and OCR output can be corrected directly in the browser by editing text and adjusting bounding boxes in place.
+
+- **Non-destructive OCR editing**  
+  OCR changes are tracked as structured edits rather than overwriting files, enabling undo/redo, reset to the original version, and reconciliation with upstream updates.
+
+- **Performance-aware document viewing**  
+  Long documents are rendered using virtualized scrolling to avoid performance and memory issues when viewing hundreds of pages.
+
+- **Reliable export for large archives**  
+  Volumes and collections can be exported as ZIP or PDF files using streaming downloads, avoiding large in-memory buffers and supporting stable downloads for large libraries.
+
+- **Designed for self-hosting**  
+  Runs locally via Docker Compose with minimal configuration, making it suitable for trusted LAN or VPN setups.
 
 ### [Matter Phase Simulation](https://github.com/nguyenston/Van_Der_Waals_Interactions)
-*Rust / Systems Simulation*
 
-Developed a particle simulation in Rust using the Bevy UI to explore physical systems. Implemented an efficient grid method to visualize complex phenomena such as the breakdown of the ideal gas law, crystalline formation, and annealing processes.
+A systems-oriented simulation project exploring emergent physical phenomena using Rust.
+
+This project implements a particle simulation with an efficient grid-based method to visualize non-ideal gas behavior, crystalline formation, and annealing processes, using the Bevy engine for visualization.
 
 ### [Quantum Virtual Machine (QVIM)](https://github.com/nguyenston/QViM)
-*Julia / Metaprogramming*
 
-Designed a domain-specific language (DSL) in Julia using meta-programming to create intuitive syntax for defining quantum logic circuits. The project includes an efficient simulator with gate operations optimized via basis change.
+An experimental project exploring language design and metaprogramming in Julia.
+
+QVIM provides a domain-specific language for expressing quantum logic circuits with readable syntax, along with a simulator that optimizes gate operations via basis changes.
 
 ## Technical Skills
 
 | Domain | Tools & Languages |
 | :--- | :--- |
-| **Languages** | Python, Julia, Rust, Bash, SQL, C++, C, R, Lua |
+| **Languages** | Python, TypeScript, Julia, Rust, Bash, SQL, C++, C, Lua |
 | **ML & Data** | PyTorch, scikit-learn, Hugging Face, pandas, Weights & Biases, cvxpy, Jupyter |
-| **Development** | Docker, Git, Nix, Linux/Unix, Cargo, Conda, Latex |
+| **Systems & Dev** | Docker, Git, Linux/Unix, Nix, Cargo, Conda, LaTeX |
 | **Core Competencies** | Data Structures, Algorithms, Probability, Statistics, Optimization, Linear Programming |
 
 ---
 
 ### Connect
-* **GitHub**: [https://github.com/nguyenston](https://github.com/nguyenston)
-* **LinkedIn**: [https://linkedin.com/in/nguyenston](https://linkedin.com/in/nguyenston)
+
+* **GitHub**: https://github.com/nguyenston  
+* **LinkedIn**: https://linkedin.com/in/nguyenston  
 * **Resume**: [View PDF](/Nguyen_Nguyen_resume.pdf)
