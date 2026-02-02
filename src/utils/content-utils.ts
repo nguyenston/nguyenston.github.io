@@ -3,10 +3,24 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils.ts";
 
+type PostFilterOptions = {
+	includeUnlisted?: boolean;
+};
+
+function shouldIncludePost(
+	data: CollectionEntry<"posts">["data"],
+	options: PostFilterOptions = {},
+) {
+	if (!import.meta.env.PROD) return true;
+	if (data.draft === true) return false;
+	if (options.includeUnlisted) return true;
+	return data.unlisted !== true;
+}
+
 // // Retrieve posts and sort them by publication date
-async function getRawSortedPosts() {
+async function getRawSortedPosts(options: PostFilterOptions = {}) {
 	const allBlogPosts = await getCollection("posts", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
+		return shouldIncludePost(data, options);
 	});
 
 	const sorted = allBlogPosts.sort((a, b) => {
@@ -17,19 +31,65 @@ async function getRawSortedPosts() {
 	return sorted;
 }
 
+function applyAdjacentLinks(
+	sorted: CollectionEntry<"posts">[],
+	adjacentBySlug: Map<string, { nextSlug: string; nextTitle: string; prevSlug: string; prevTitle: string }>,
+) {
+	for (const entry of sorted) {
+		const adjacent = adjacentBySlug.get(entry.slug);
+		entry.data.nextSlug = adjacent?.nextSlug ?? "";
+		entry.data.nextTitle = adjacent?.nextTitle ?? "";
+		entry.data.prevSlug = adjacent?.prevSlug ?? "";
+		entry.data.prevTitle = adjacent?.prevTitle ?? "";
+	}
+}
+
+function buildAdjacentMap(sorted: CollectionEntry<"posts">[]) {
+	const adjacentBySlug = new Map<
+		string,
+		{ nextSlug: string; nextTitle: string; prevSlug: string; prevTitle: string }
+	>();
+
+	for (let i = 1; i < sorted.length; i++) {
+		adjacentBySlug.set(sorted[i].slug, {
+			nextSlug: sorted[i - 1].slug,
+			nextTitle: sorted[i - 1].data.title,
+			prevSlug: "",
+			prevTitle: "",
+		});
+	}
+	for (let i = 0; i < sorted.length - 1; i++) {
+		const existing = adjacentBySlug.get(sorted[i].slug) ?? {
+			nextSlug: "",
+			nextTitle: "",
+			prevSlug: "",
+			prevTitle: "",
+		};
+		adjacentBySlug.set(sorted[i].slug, {
+			...existing,
+			prevSlug: sorted[i + 1].slug,
+			prevTitle: sorted[i + 1].data.title,
+		});
+	}
+
+	return adjacentBySlug;
+}
+
 export async function getSortedPosts() {
 	const sorted = await getRawSortedPosts();
 
-	for (let i = 1; i < sorted.length; i++) {
-		sorted[i].data.nextSlug = sorted[i - 1].slug;
-		sorted[i].data.nextTitle = sorted[i - 1].data.title;
-	}
-	for (let i = 0; i < sorted.length - 1; i++) {
-		sorted[i].data.prevSlug = sorted[i + 1].slug;
-		sorted[i].data.prevTitle = sorted[i + 1].data.title;
-	}
+	const adjacentBySlug = buildAdjacentMap(sorted);
+	applyAdjacentLinks(sorted, adjacentBySlug);
 
 	return sorted;
+}
+export async function getSortedPostsForPaths() {
+	const allSorted = await getRawSortedPosts({ includeUnlisted: true });
+	const publicSorted = await getRawSortedPosts();
+	const adjacentBySlug = buildAdjacentMap(publicSorted);
+
+	applyAdjacentLinks(allSorted, adjacentBySlug);
+	return allSorted;
 }
 export type PostForList = {
 	slug: string;
@@ -53,7 +113,7 @@ export type Tag = {
 
 export async function getTagList(): Promise<Tag[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
+		return shouldIncludePost(data);
 	});
 
 	const countMap: { [key: string]: number } = {};
@@ -80,7 +140,7 @@ export type Category = {
 
 export async function getCategoryList(): Promise<Category[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
+		return shouldIncludePost(data);
 	});
 	const count: { [key: string]: number } = {};
 	allBlogPosts.forEach((post: { data: { category: string | null } }) => {
