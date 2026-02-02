@@ -33,7 +33,10 @@ async function getRawSortedPosts(options: PostFilterOptions = {}) {
 
 function applyAdjacentLinks(
 	sorted: CollectionEntry<"posts">[],
-	adjacentBySlug: Map<string, { nextSlug: string; nextTitle: string; prevSlug: string; prevTitle: string }>,
+	adjacentBySlug: Map<
+		string,
+		{ nextSlug: string; nextTitle: string; prevSlug: string; prevTitle: string }
+	>,
 ) {
 	for (const entry of sorted) {
 		const adjacent = adjacentBySlug.get(entry.slug);
