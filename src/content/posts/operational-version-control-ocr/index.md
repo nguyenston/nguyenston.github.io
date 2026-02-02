@@ -20,7 +20,7 @@ That’s a version control problem, and not one that maps cleanly to Git.
 
 OCR is **structured, spatial data**. It isn’t just text. Edits have *intent* (replace this line, remove that block, fix reading order), not just before/after states. Users expect undo, private history, and safe reconciliation when the upstream OCR changes.
 
-This post describes a **patch-based, operational version control system** designed specifically for OCR editing. It focuses on the *ideas and tradeoffs* behind the design. Full mechanics and edge cases are linked separately in the spec and appendix.
+This post describes a **patch-based, operational version control system** designed specifically for OCR editing. It focuses on the *ideas and tradeoffs* behind the design. Full mechanics and edge cases are linked separately in the [spec](/posts/unlisted/ocr-version-control/) and appendix.
 
 If you just want the high-level model, Sections 1–3 are enough. Later sections go deeper into rebase, conflict handling, and performance.
 
@@ -169,7 +169,7 @@ For a given user, `rootPatchId` marks the first patch that belongs to their priv
 
 If `rootPatchId` is null, the user has no private edits and is simply tracking the canonical OCR. Once the user makes their first edit, `rootPatchId` is set, and a private timeline is established.
 
-The exact pointer mechanics and edge cases are spelled out in the spec. The key idea is simple: **each user always experiences history as a single, unambiguous sequence**, even though the underlying storage is a tree.
+The exact pointer mechanics and edge cases are spelled out in the [spec](/posts/unlisted/ocr-version-control/). The key idea is simple: **each user always experiences history as a single, unambiguous sequence**, even though the underlying storage is a tree.
 
 
 
@@ -340,7 +340,7 @@ To apply an edit:
 
 If the user had undone edits and applies a new patch, any abandoned redo future is normally discarded. This mirrors standard editor behavior.
 
-One exception exists: if discarding the redo future would invalidate shared history, the system instead forks and establishes a new private base. The details are mechanical and spelled out in the spec.
+One exception exists: if discarding the redo future would invalidate shared history, the system instead forks and establishes a new private base. The details are mechanical and spelled out in the [spec](/posts/unlisted/ocr-version-control/).
 
 ### 5.3 Undo
 
@@ -459,7 +459,7 @@ To make this deterministic, the system relies on two pieces of information:
 
 When redo is requested, the system uses these mechanism to determin the definitive next patch.
 
-The full disambiguation rules are mechanical and included in the spec.
+The full disambiguation rules are mechanical and included in the [spec](/posts/unlisted/ocr-version-control/).
 
 ### 5.6 Reset
 
